@@ -5,7 +5,7 @@ from .forms import ProfileForm,ProjectForm,RatingForm,UserForm
 from django.contrib.auth.decorators import login_required
 
 # Create your views here.
-@login_required(login_url='/accounts/login')
+@login_required(login_url='/accounts/login/')
 def home(request):
     users = User.objects.exclude(id=request.user.id)
     projects = Project.all_projects()
