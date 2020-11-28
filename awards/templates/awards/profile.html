@@ -38,8 +38,10 @@
                     <form action="{%url 'profile' user.username %}" method="post" enctype="multipart/form-data"
                         class="mr-4 mt-4 ml-4 mb-4">
                         {% csrf_token%}
-                        {{ user_form}}
-                        {{ profile_form}}
+                        {% bootstrap_form user_form %}
+                        {% bootstrap_form profile_form%}
+
+
                         <button type="submit" class="btn btn-primary btn-sm"> Update Profile</button>
                     </form>
                 </div>

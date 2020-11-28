@@ -25,7 +25,7 @@
                             <div class="modal-body">
                                 <form action="" method="post" enctype="multipart/form-data">
                                     {% csrf_token %}
-                                    {{ form }}
+                                    {%bootstrap_form form %}
                                     <button class="btn btn-primary">Upload</button>
                                     <button type="button" class="btn  btn-primary mt-2" data-dismiss="modal">
                                         Close
