@@ -1,4 +1,4 @@
-from django.shortcuts import render,redirect
+from django.shortcuts import render,redirect,get_object_or_404
 from .models import Profile,Project,Rating
 from django.contrib.auth.models import User
 from .forms import ProfileForm,ProjectForm,RatingForm,UserForm
@@ -41,3 +41,13 @@ def profile(request, username):
         user_form = UserForm(instance=request.user)
         profile_form = ProfileForm(instance=request.user.profile)
     return render(request, 'awards/profile.html',{"user_form":user_form,"profile_form":profile_form,"projects":projects})
+
+@login_required(login_url='accounts/login/')
+def user(request,username):
+    user_form = get_object_or_404(User, username=username)
+
+    if request.user == user_form:
+        return redirect('profile',username=request.user.username)
+    projects = user_form.profile.projects.all()
+
+    return render(request,'awards/user.html',{"user_form":user_form,"projects":projects})
