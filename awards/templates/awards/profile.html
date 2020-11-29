@@ -53,14 +53,51 @@
 </div>
 <div class="container-fluid">
     <h3 class="text-center" style="text-decoration: underline;">{{user.username }}'s Posted Projects.</h3>
+</div>
+<div class="container-fluid">
     <div class="row">
 
         {% for project in projects %}
-        <div class="col-sm-4 col-md-3 mt-5">
-            <img src="{{project.image.url}}" alt="" style="width: 300px;">
+        <div class="col-sm-6 col-md-3">
+            <img src="{{project.image.url}}" class="img-responsive" alt="Image" style="width: 560px; height: 300px;">
+        </div>
+        <div class="col-md-12 mt-3 mb-3">
+            <button type="button" class="btn btn-primary" data-toggle="modal"
+                data-target="#staticBackdrop{{project.id}}">
+                View Image Details
+            </button>
+        </div>
 
-            <p>Caption:{{project.title}}</p>
-            <link href="{{project.project_link}}">
+
+        <div class="modal fade" id="staticBackdrop{{project.id}}" data-backdrop="static" data-keyboard="false"
+            tabindex="-1" aria-labelledby="staticBackdropLabel" aria-hidden="true">
+            <div class="modal-dialog">
+                <div class="modal-content">
+                    <div class="modal-header">
+                        <div class="col-md-12">
+                            <h5 class="modal-title" id="staticBackdropLabel">{{project.title}}</h5>
+                            <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                                <span aria-hidden="true">&times;</span>
+                            </button>
+                        </div>
+                    </div>
+
+                    <div class="modal-body">
+                        <img src="{{project.image.url}}" class="img-responsive" alt="Image"
+                            style="width: 400px; height: 300px;">
+
+                        <p class="pl-3 pt-3">Description:<strong>{{project.description}}</strong></p>
+                        <!-- <p style="font-weight: bolder;" class="pl-3">{{photo.description}}</p> -->
+                        <p class="pl-3 pt-3"><a href="{{project.project_link}}">Visit Website Here</a></p>
+                    </div>
+                    <div class="modal-footer row">
+
+                        <div class="col-md-2">
+                            <button type="button" class="btn btn-outline-primary" data-dismiss="modal">Close</button>
+                        </div>
+                    </div>
+                </div>
+            </div>
         </div>
 
         {% endfor %}

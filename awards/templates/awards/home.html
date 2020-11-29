@@ -40,10 +40,10 @@
             {% for project in projects %}
             <div class="card mb-4">
                 <div class="card-title">
-                    <img src="{{project.image.url}}" alt="" style="width: 300px;" class="m-4">
+                    <img src="{{project.image.url}}" alt="" style="width: 600px; height: 370px;" class="m-4">
 
                 </div>
-                <p class="ml-2">Caption:{{project.description}}</p>
+                <p class="ml-2">Description:{{project.description}}</p>
                 <img src="{{project.profile.user.profile.profile_photo.url}}"
                     class="rounded-circle border ml-3 mt-2  mr-3" alt="{{profile.user.user.username}}" width="35"
                     height="35">
