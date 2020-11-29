@@ -1,0 +1,29 @@
+{%extends 'instagrams/base.html'%}
+{% block content %}
+<div class="container">
+
+    <div class="row">
+        {% if profiles%}
+        <h2>Found {{ profiles|length }} of searched term {{message}}</h2>
+        {% else %}
+        <h2> Found 0 profiles for the search term {{message}}</h2>
+        {% endif %}
+
+    </div>
+
+    <div class="row">
+
+        {% if profiles %}
+        {% for profile in profiles %}
+        <div class="col-md-12">
+            <img src="{{profile.user.profile.profile_photo.url}}" alt="" style="width: 300px;">
+
+        </div>
+        <div class="col-md-12">
+            <a href="{% url 'user' profile.user.username %}">{{profile.user.username}}</a>
+        </div>
+        {% endfor %}
+        {% endif %}
+    </div>
+</div>
+{% endblock %}

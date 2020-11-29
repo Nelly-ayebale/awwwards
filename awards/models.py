@@ -29,6 +29,11 @@ class Profile(models.Model):
     @receiver(post_save, sender=User)
     def save_user_profile(sender, instance, **kwargs):
         instance.profile.save()
+    
+    @classmethod
+    def search_by_profile(cls,search_term):
+        profiles = cls.objects.filter(user__username__icontains=search_term)
+        return profiles
 
 class Project(models.Model):
     profile = models.ForeignKey('Profile',on_delete=models.ForeignKey,related_name='projects')

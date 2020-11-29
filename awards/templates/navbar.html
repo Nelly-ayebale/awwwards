@@ -12,7 +12,8 @@
 
             </li>
             <li>
-                <a class="nav-link" href="{%url 'profile' user.username %}"><span>{{ user.username }}</span></a>
+                <a class="nav-link" href="{%url 'profile' user.username %}"
+                    style="font-weight: bold;"><span>{{ user.username }}</span></a>
 
             </li>
             {% if user.is_authenticated %}
