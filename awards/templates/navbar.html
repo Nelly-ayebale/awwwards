@@ -11,11 +11,7 @@
                 <a class="nav-link" href="{%url 'home' %}">Home <span class="sr-only">(current)</span></a>
 
             </li>
-            <li>
-                <a class="nav-link" href="{%url 'profile' user.username %}"
-                    style="font-weight: bold;"><span>{{ user.username }}</span></a>
 
-            </li>
             {% if user.is_authenticated %}
             <li class="nav-item dropdown">
                 <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button" data-toggle="dropdown"
@@ -41,9 +37,21 @@
 
             {% endif %}
         </ul>
-        <form class="form-inline my-2 my-lg-0">
-            <input class="form-control mr-sm-2" type="search" placeholder="Search" aria-label="Search">
-            <button class="btn btn-outline-success my-2 my-sm-0" type="submit">Search</button>
+        <div class="navbar-right mr-5">
+
+            <a class="nav-link" href="{%url 'profile' user.username %}"
+                style="font-weight: bold;"><span>{{ user.username }}</span></a>
+
+        </div>
+        <form class="navbar-form" role="search" action="{% url 'search' %}">
+
+            <div class="input-group">
+                <input type="text" class="form-control" placeholder="Search For Profile" name="profile">
+                <div class="input-group-btn">
+                    <button class="btn btn-outline-primary pl-2" type="submit">Search</button>
+                </div>
+            </div>
+
         </form>
     </div>
 </nav>
