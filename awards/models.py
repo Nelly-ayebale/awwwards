@@ -63,6 +63,7 @@ class Rating(models.Model):
     design = models.IntegerField(choices=rating,blank=True,default=0)
     usability = models.IntegerField(choices=rating,blank=True,default=0)
     content = models.IntegerField(choices=rating,blank=True,default=0)
+    score = models.IntegerField(default=0,blank=True)
 
     def __str__(self):
         return self.rating
