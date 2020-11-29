@@ -3,7 +3,7 @@
 <table>
 <tr>
 <td>
-  A Django replica of the Awwwards web application where a user creates a profile,Uploads his/her webisites where other users can rate/review them and vice versa.
+  A Django replica of the Awwwards web application where a user creates a profile,Uploads his/her websites where other users can rate/review them and vice versa.
 </td>
 </tr>
 </table>
