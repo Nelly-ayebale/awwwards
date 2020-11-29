@@ -56,13 +56,13 @@ def user(request,username):
     return render(request,'awards/user.html',{"user_form":user_form,"projects":projects})
 
 @login_required(login_url='accounts/login/')
-def search_by_profile(request):
-    if 'profile' in request.GET and request.GET["profile"]:
-        search_term = request.GET.get("profile")
-        searched_profiles = Profile.search_by_profile(search_term)
+def search_by_title(request):
+    if 'title' in request.GET and request.GET["title"]:
+        search_term = request.GET.get("title")
+        searched_projects = Project.search_by_title(search_term)
         message = f"{search_term}"
 
-        return render(request, 'awards/search.html',{"message":message,"profiles": searched_profiles})
+        return render(request, 'awards/search.html',{"message":message,"projects": searched_projects})
 
     else:
         message = "You haven't searched for any term"

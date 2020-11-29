@@ -30,11 +30,7 @@ class Profile(models.Model):
     def save_user_profile(sender, instance, **kwargs):
         instance.profile.save()
     
-    @classmethod
-    def search_by_profile(cls,search_term):
-        profiles = cls.objects.filter(user__username__icontains=search_term)
-        return profiles
-
+    
 class Project(models.Model):
     profile = models.ForeignKey('Profile',on_delete=models.ForeignKey,related_name='projects')
     title = models.CharField(max_length=300)
@@ -55,6 +51,12 @@ class Project(models.Model):
     def all_projects(cls):
         projects = cls.objects.all()
         return projects
+    
+    @classmethod
+    def search_by_title(cls,search_term):
+        profiles = cls.objects.filter(title__icontains=search_term)
+        return profiles
+
 
 class Rating(models.Model):
     rating = ((1,'1'),(2,'2'),(3,'3'),(4,'4'),(5,'5'),(6,'6'),(7,'7'),(8,'8'),(9,'9'),(10,'10'))
