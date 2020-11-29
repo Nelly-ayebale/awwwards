@@ -3,6 +3,9 @@ from .models import Profile,Project,Rating
 from django.contrib.auth.models import User
 from .forms import ProfileForm,ProjectForm,RatingForm,UserForm
 from django.contrib.auth.decorators import login_required
+from rest_framework.response import Response
+from rest_framework.views import APIView
+from .serializer import ProfileSerializer,ProjectSerializer
 
 # Create your views here.
 @login_required(login_url='/accounts/login/')
@@ -66,4 +69,14 @@ def search_by_profile(request):
         return render(request, 'awards/search.html',{"message":message})
 
 
+class ProfileList(APIView):
+    def get(self, request, format=None):
+        all_profiles = Profile.objects.all()
+        serializers = ProfileSerializer(all_profiles, many=True)
+        return Response(serializers.data)
 
+class ProjectList(APIView):
+    def get(self, request, format=None):
+        all_projects = Project.objects.all()
+        serializers = ProjectSerializer(all_projects, many=True)
+        return Response(serializers.data)
