@@ -64,3 +64,6 @@ def search_by_profile(request):
     else:
         message = "You haven't searched for any term"
         return render(request, 'awards/search.html',{"message":message})
+
+
+

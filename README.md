@@ -46,7 +46,7 @@ If you'd like to request a new function, feel free to do so by opening an issue 
 - The user should be able to search for different profiles.
 
 ## Figma Blueprint
-
+[here](https://www.figma.com/file/c2pINnJKnJxPKcnj35Vjsd/Awwwards?node-id=1%3A2)
 
 ## Resources
 This website was helpful in extending the Django User Model using a One-to-One link [here](https://simpleisbetterthancomplex.com/tutorial/2016/07/22/how-to-extend-django-user-model.html)

@@ -1,5 +1,5 @@
 <nav class="navbar navbar-expand-lg navbar-light bg-light">
-    <a class="navbar-brand" href="#">Awwwards</a>
+    <a class="navbar-brand" href="{%url 'home' %}" style="font-weight: bolder;">Awwwards</a>
     <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent"
         aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
         <span class="navbar-toggler-icon"></span>
@@ -8,14 +8,15 @@
     <div class="collapse navbar-collapse" id="navbarSupportedContent">
         <ul class="navbar-nav mr-auto">
             <li class="nav-item active">
-                <a class="nav-link" href="{%url 'home' %}">Home <span class="sr-only">(current)</span></a>
+                <a class="nav-link" href="{%url 'home' %}"><i class="fa fa-home"></i><span
+                        class="sr-only">(current)</span></a>
 
             </li>
 
             {% if user.is_authenticated %}
             <li class="nav-item dropdown">
                 <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button" data-toggle="dropdown"
-                    aria-haspopup="true" aria-expanded="false">
+                    aria-haspopup="true" aria-expanded="false" style="font-weight: bolder;">
                     Account
                 </a>
 
@@ -39,8 +40,8 @@
         </ul>
         <div class="navbar-right mr-5">
 
-            <a class="nav-link" href="{%url 'profile' user.username %}"
-                style="font-weight: bold;"><span>{{ user.username }}</span></a>
+            <a class="nav-link" href="{%url 'profile' user.username %}" style="font-weight: bold;"><i
+                    class="fa fa-user mr-2"></i><span>{{ user.username }}</span></a>
 
         </div>
         <form class="navbar-form" role="search" action="{% url 'search' %}">
