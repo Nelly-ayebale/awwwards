@@ -1,4 +1,4 @@
-# [Awwwards]
+# [Awwwards](https://nellys-awards.herokuapp.com/)
 # Awwwards
 <table>
 <tr>
@@ -8,7 +8,7 @@
 </tr>
 </table>
 
-## [Usage]
+## [Usage](https://nellys-awards.herokuapp.com/)
 
 ### Development
 Want to contribute? Great!
